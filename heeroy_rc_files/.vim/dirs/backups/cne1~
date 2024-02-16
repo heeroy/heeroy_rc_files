@@ -1,0 +1,4 @@
+#!/bin/sh
+ssh -A nv-master1.bkp.corp.ne1.yahoo.com \
+    -L 5989:archive-master1.bkp.ne1.yahoo.com:5979
+    -L 5990:localhost:5990

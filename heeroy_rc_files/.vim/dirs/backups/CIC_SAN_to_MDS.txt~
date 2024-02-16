@@ -1,0 +1,281 @@
+=====================================================
+Old brocade config
+=====================================================
+alicreate cic_L500_d00_d01,"50:01:04:f0:00:7e:be:72;50:01:04:f0:00:7e:be:75"
+alicreate cic_L500_robot,"50:01:04:f0:00:7e:be:68"
+alicreate cic_asb1,"20:00:00:e0:8b:12:6b:19"
+alicreate cic_nv_master1,"21:00:00:e0:8b:92:ac:34"
+alicreate cic_nv_master1_s0p06,"50:01:43:80:06:34:bf:3c"
+alicreate cic_nv_master2,"21:00:00:1b:32:10:1b:29"
+alicreate cic_tpe_na_fs1,"20:00:00:e0:8b:9d:a3:ef"
+zonecreate MS_SL500,"1,0;1,1;1,2;1,3"
+zonecreate ZNE_cic_asb1,"cic_asb1;cic_L500_d00_d01"
+zonecreate ZNE_cic_nv_master1,"cic_nv_master1;cic_L500_robot;cic_L500_d00_d01"
+zonecreate ZNE_cic_nv_master1_JVTL,"cic_nv_master1_s0p06;cic_L500_robot;cic_L500_d00_d01"
+zonecreate ZNE_cic_nv_master2,"cic_nv_master2;cic_L500_robot;cic_L500_d00_d01"
+zonecreate ZNE_cic_tpe_na_fs1,"cic_tpe_na_fs1;cic_L500_d00_d01"
+cfgcreate BKP_FABRIC,"MS_SL500;ZNE_cic_asb1;ZNE_cic_nv_master1;ZNE_cic_nv_master1_JVTL;ZNE_cic_nv_master2;ZNE_cic_tpe_na_fs1"
+=====================================================
+1. config ip, gateway, dns, and so on.
+reference: http://tiny.corp.yahoo.com/YEFL8G
+code: 
+conf t
+switchname cisco-mds1-bkp-corp-tw1
+! mgmt0 ip, gateway
+interface mgmt0
+switchport speed auto
+switchport duplex auto
+ip address 202.89.123.251 255.255.255.0
+ip default-gateway 202.89.123.1
+! dns
+ip domain-lookup
+ip domain-name yahoo.com
+ip domain-list yahoo.com 
+ip name-server 202.174.4.205 202.174.4.206
+! ntp
+ntp distribute
+ntp server 10.82.41.11
+ntp commit
+clock timezone CST 8 0
+! ssh
+conf t
+ssh key rsa 768 force
+ssh server enable
+
+2. install new firmware / license
+feature cluster
+feature sme
+feature dpvm
+exit           
+copy scp://nv-smart1.bkp.corp.tw1/home/heeroy/MDS20100712032423660.lic bootflash:MDS20100712032423660.lic
+copy scp://nv-smart1.bkp.corp.tw1/home/heeroy/MDS20100714020148966.lic bootflash:MDS20100714020148966.lic
+copy scp://nv-smart1.bkp.corp.tw1/home/heeroy/m9200-s2ek9-kickstart-mz.4.1.3a.bin bootflash:m9200-s2ek9-kickstart-mz.4.1.3a.bin
+copy scp://nv-smart1.bkp.corp.tw1/home/heeroy/m9200-s2ek9-mz.4.1.3a.bin bootflash:m9200-s2ek9-mz.4.1.3a.bin
+install license bootflash:MDS20100712032423660.lic
+install license bootflash:MDS20100714020148966.lic
+install all kickstart bootflash:m9200-s2ek9-kickstart-mz.4.1.3a.bin sys bootflash:m9200-s2ek9-mz.4.1.3a.bin
+
+3. radius config ( after acct1.bkp.corp.tw1 config done )
+conf t
+aaa authentication login default group corp.tw1 none
+aaa authentication login console local none
+aaa authentication login error-enable
+radius-server host acct1.bkp.corp.tw1.yahoo.com key 7 "fewhg" authentication accounting
+aaa group server radius corp.tw1
+server acct1.bkp.corp.tw1.yahoo.com 
+
+4. alias config
+orig: 
+ alias: cic_L500_d00_d01
+                50:01:04:f0:00:7e:be:72; 50:01:04:f0:00:7e:be:75
+ alias: cic_L500_robot
+                50:01:04:f0:00:7e:be:68
+ alias: cic_asb1
+                20:00:00:e0:8b:12:6b:19
+ alias: cic_nv_master1
+                21:00:00:e0:8b:92:ac:34
+ alias: cic_nv_master1_s0p06
+                50:01:43:80:06:34:bf:3c
+ alias: cic_nv_master2
+                21:00:00:1b:32:10:1b:29
+ alias: cic_tpe_na_fs1
+                20:00:00:e0:8b:9d:a3:ef
+new:
+conf t
+device-alias database
+device-alias name CIC_L500_d00 pwwn 50:01:04:f0:00:7e:be:72
+device-alias name CIC_L500_d01 pwwn 50:01:04:f0:00:7e:be:75
+device-alias name CIC_L500_robot pwwn 50:01:04:f0:00:7e:be:68
+device-alias name CIC_asb1 pwwn 20:00:00:e0:8b:12:6b:19
+device-alias name CIC_nv_master1 pwwn 21:00:00:e0:8b:92:ac:34
+device-alias name CIC_nv_master1_s0p06 pwwn 50:01:43:80:06:34:bf:3c
+device-alias name CIC_nv_master2 pwwn 21:00:00:1b:32:10:1b:29
+device-alias name CIC_tpe_na_fs1 pwwn 20:00:00:e0:8b:9d:a3:ef
+device-alias commit
+
+5. vsan config
+conf t
+vsan database
+vsan 100 name "VSAN100"
+vsan 100 interface fc1/1
+vsan 100 interface fc1/2
+vsan 100 interface fc1/3
+vsan 100 interface fc1/4
+vsan 100 interface fc1/5
+vsan 100 interface fc1/6
+vsan 100 interface fc1/7
+vsan 100 interface fc1/8
+vsan 100 interface fc1/9
+vsan 100 interface fc1/10
+vsan 100 interface fc1/11
+vsan 100 interface fc1/12
+vsan 100 interface fc1/13
+vsan 100 interface fc1/14
+vsan 100 interface fc1/15
+vsan 100 interface fc1/16
+vsan 100 interface fc1/17
+vsan 100 interface fc1/18
+exit
+show vsan 100
+
+cisco-mds1-bkp-corp-tw1# show vsan 100
+vsan 100 information
+         name:VSAN100  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:down
+
+cisco-mds1-bkp-corp-tw1# show vsan 100 membership
+vsan 100 interfaces:
+    fc1/1             fc1/2             fc1/3             fc1/4
+    fc1/5             fc1/6             fc1/7             fc1/8
+    fc1/9             fc1/10            fc1/11            fc1/12
+    fc1/13            fc1/14            fc1/15            fc1/16
+    fc1/17            fc1/18
+
+6. dpvm config
+conf t
+device-alias mode enhanced
+device-alias commit
+dpvm database
+device-alias CIC_L500_d00  vsan 100
+device-alias CIC_L500_d01  vsan 100
+device-alias CIC_L500_robot  vsan 100
+device-alias CIC_asb1  vsan 100
+device-alias CIC_nv_master1  vsan 100
+device-alias CIC_nv_master1_s0p06  vsan 100
+device-alias CIC_nv_master2  vsan 100
+device-alias CIC_tpe_na_fs1  vsan 100
+dpvm activate force
+dpvm commit
+
+cisco-mds1-bkp-corp-tw1# show dpvm database 
+device-alias CIC_L500_d00 [50:01:04:f0:00:7e:be:72] vsan 100
+device-alias CIC_L500_d01 [50:01:04:f0:00:7e:be:75] vsan 100
+device-alias CIC_L500_robot [50:01:04:f0:00:7e:be:68] vsan 100
+device-alias CIC_asb1 [20:00:00:e0:8b:12:6b:19] vsan 100
+device-alias CIC_nv_master1 [21:00:00:e0:8b:92:ac:34] vsan 100
+device-alias CIC_nv_master1_s0p06 [50:01:43:80:06:34:bf:3c] vsan 100
+device-alias CIC_nv_master2 [21:00:00:1b:32:10:1b:29] vsan 100
+device-alias CIC_tpe_na_fs1 [20:00:00:e0:8b:9d:a3:ef] vsan 100
+[Total 8 entries]
+cisco-mds1-bkp-corp-tw1# 
+
+7. zoneset config:
+orig:
+fcore1_bkp_cic:admin> zoneshow \*
+ zone:  MS_SL500
+                1,0; 1,1; 1,2; 1,3
+ zone:  ZNE_cic_asb1
+                cic_asb1; cic_L500_d00_d01
+ zone:  ZNE_cic_nv_master1
+                cic_nv_master1; cic_L500_robot; cic_L500_d00_d01
+ zone:  ZNE_cic_nv_master1_JVTL 
+                cic_nv_master1_s0p06; cic_L500_robot; cic_L500_d00_d01
+ zone:  ZNE_cic_nv_master2
+                cic_nv_master2; cic_L500_robot; cic_L500_d00_d01
+ zone:  ZNE_cic_tpe_na_fs1
+                cic_tpe_na_fs1; cic_L500_d00_d01
+
+conf t
+zone name ZNE_CIC_asb1 vsan 100
+member device-alias CIC_asb1
+member device-alias CIC_L500_d00
+member device-alias CIC_L500_d01
+exit
+
+zone name ZNE_CIC_tpe_na_fs1 vsan 100
+member device-alias CIC_tpe_na_fs1
+member device-alias CIC_L500_d00
+member device-alias CIC_L500_d01
+exit
+
+zone name ZNE_CIC_nv_master1 vsan 100
+member device-alias CIC_nv_master1
+member device-alias CIC_L500_robot
+member device-alias CIC_L500_d00
+member device-alias CIC_L500_d01
+exit
+
+zone name ZNE_CIC_nv_master1_JVTL vsan 100
+member device-alias CIC_nv_master1_s0p06 
+member device-alias CIC_L500_robot
+member device-alias CIC_L500_d00
+member device-alias CIC_L500_d01
+exit
+
+zone name ZNE_CIC_nv_master2 vsan 100
+member device-alias CIC_nv_master2
+member device-alias CIC_L500_robot
+member device-alias CIC_L500_d00
+member device-alias CIC_L500_d01
+exit
+
+cisco-mds1-bkp-corp-tw1# show zone
+zone name ZNE_CIC_asb1 vsan 100
+  device-alias CIC_asb1
+  device-alias CIC_L500_d00
+  device-alias CIC_L500_d01
+
+zone name ZNE_CIC_tpe_na_fs1 vsan 100
+  device-alias CIC_tpe_na_fs1
+  device-alias CIC_L500_d00
+  device-alias CIC_L500_d01
+
+zone name ZNE_CIC_nv_master1 vsan 100
+  device-alias CIC_nv_master1
+  device-alias CIC_L500_robot
+  device-alias CIC_L500_d00
+  device-alias CIC_L500_d01
+
+zone name ZNE_CIC_nv_master1_JVTL vsan 100
+  device-alias CIC_nv_master1_s0p06
+  device-alias CIC_L500_robot
+  device-alias CIC_L500_d00
+  device-alias CIC_L500_d01
+
+zone name ZNE_CIC_nv_master2 vsan 100
+  device-alias CIC_nv_master2
+  device-alias CIC_L500_robot
+  device-alias CIC_L500_d00
+  device-alias CIC_L500_d01
+
+7. zoneset config
+conf t
+zoneset name ZSET_CIC vsan 100
+member ZNE_CIC_asb1
+member ZNE_CIC_tpe_na_fs1
+member ZNE_CIC_nv_master1
+member ZNE_CIC_nv_master1_JVTL
+member ZNE_CIC_nv_master2
+exit
+
+cisco-mds1-bkp-corp-tw1# show zoneset
+zoneset name ZSET_CIC vsan 100
+  zone name ZNE_CIC_asb1 vsan 100
+    device-alias CIC_asb1
+    device-alias CIC_L500_d00
+    device-alias CIC_L500_d01
+  
+  zone name ZNE_CIC_tpe_na_fs1 vsan 100
+    device-alias CIC_tpe_na_fs1
+    device-alias CIC_L500_d00
+    device-alias CIC_L500_d01
+  
+  zone name ZNE_CIC_nv_master1 vsan 100
+    device-alias CIC_nv_master1
+    device-alias CIC_L500_robot
+    device-alias CIC_L500_d00
+    device-alias CIC_L500_d01
+  
+  zone name ZNE_CIC_nv_master1_JVTL vsan 100
+    device-alias CIC_nv_master1_s0p06
+    device-alias CIC_L500_robot
+    device-alias CIC_L500_d00
+    device-alias CIC_L500_d01
+  
+  zone name ZNE_CIC_nv_master2 vsan 100
+    device-alias CIC_nv_master2
+    device-alias CIC_L500_robot
+    device-alias CIC_L500_d00
+    device-alias CIC_L500_d01

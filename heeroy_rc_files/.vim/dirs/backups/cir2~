@@ -1,0 +1,3 @@
+#!/bin/sh
+ssh master1.bkp.corp.ir2.yahoo.com
+#mosh --ssh="ssh -p 60002" jaguar.ops.corp.tw1.yahoo.com

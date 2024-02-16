@@ -1,0 +1,100 @@
+0x0306A0,v
+set ignorecase,v
+0x0106E0,v
+http://www.teepr.com/wp-content/uploads/2015/09/55fa44e212355.jpg,v
+#,v
+		<string>-xcpm</string>,V
+關於您的問題，很抱歉，因系統問題，訂單編號：10000806920696您已完成付款，但未更新訂單付款狀態，我們已轉請相關部門處理，預計五個工作天內修正訂單狀態，待更新完成後，系統將寄送「超商物流-完成取貨付款」給您，請您稍作等待。而對於造成您的不方便，我們深感抱歉。,v
+FakeSMC.kextRealtekRTL8111.kextNullCPUPowerManagement.kextAppleACPIPS2Nub.kextApplePS2Controller.kext,v
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict>	<key>ACPI</key>	<dict>		<key>DSDT</key>		<dict>			<key>Debug</key>			<false/>			<key>DropOEM_DSM</key>			<false/>			<key>Name</key>			<string>DSDT.aml</string>			<key>ReuseFFFF</key>			<false/>		</dict>		<key>DropTables</key>		<array>			<dict>				<key>Signature</key>				<string>DMAR</string>			</dict>			<dict>				<key>Signature</key>				<string>SSDT</string>				<key>TableId</key>				<string>CpuPm</string>			</dict>			<dict>				<key>Signature</key>				<string>SSDT</string>				<key>TableId</key>				<string>Cpu0Ist</string>			</dict>			<dict>				<key>Signature</key>				<string>MCFG</string>			</dict>		</array>		<key>SSDT</key>		<dict>			<key>DropOem</key>			<false/>			<key>Generate</key>			<false/>		</dict>	</dict>	<key>Boot</key>	<dict>		<key>Arguments</key>		<string>slide=0 dart=0 -xcpm</string>		<key>Debug</key>		<false/>		<key>DefaultLoader</key>		<string>boot.efi</string>		<key>DefaultVolume</key>		<string>LastBootedVolume</string>		<key>Legacy</key>		<string>PBR</string>		<key>Secure</key>		<false/>		<key>Timeout</key>		<integer>20</integer>		<key>XMPDetection</key>		<string>Yes</string>	</dict>	<key>CPU</key>	<dict>		<key>UseARTFrequency</key>		<false/>	</dict>	<key>Devices</key>	<dict>		<key>Audio</key>		<dict>			<key>Inject</key>			<string>1</string>		</dict>		<key>USB</key>		<dict>			<key>AddClockID</key>			<true/>			<key>FixOwnership</key>			<false/>			<key>Inject</key>			<true/>		</dict>	</dict>	<key>GUI</key>	<dict>		<key>Mouse</key>		<dict>			<key>DoubleClick</key>			<integer>500</integer>			<key>Enabled</key>			<false/>			<key>Mirror</key>			<false/>			<key>Speed</key>			<integer>8</integer>		</dict>		<key>Scan</key>		<true/>		<key>ScreenResolution</key>		<string>1024x768</string>		<key>Theme</key>		<string>embedded</string>	</dict>	<key>Graphics</key>	<dict>		<key>Inject</key>		<dict>			<key>ATI</key>			<false/>			<key>Intel</key>			<false/>			<key>NVidia</key>			<false/>		</dict>		<key>NvidiaSingle</key>		<false/>	</dict>	<key>KernelAndKextPatches</key>	<dict>		<key>AppleRTC</key>		<false/>		<key>AsusAICPUPM</key>		<true/>		<key>Debug</key>		<false/>		<key>FakeCPUID</key>		<string>0x0306A0</string>		<key>KernelCpu</key>		<false/>		<key>KernelHaswellE</key>		<false/>		<key>KernelLapic</key>		<false/>		<key>KernelPm</key>		<true/>	</dict>	<key>RtVariables</key>	<dict>		<key>MLB</key>		<string>[insert MLB here]</string>		<key>ROM</key>		<string>UseMacAddr0</string>	</dict>	<key>SMBIOS</key>	<dict>		<key>BiosReleaseDate</key>		<string>09/04/2012</string>		<key>BiosVendor</key>		<string>Apple Inc.</string>		<key>BiosVersion</key>		<string>IM131.88Z.010A.B05.1209042338</string>		<key>Board-ID</key>		<string>[insert ID here]</string>		<key>BoardManufacturer</key>		<string>Apple Inc.</string>		<key>BoardSerialNumber</key>		<string>[insert serial here]</string>		<key>BoardType</key>		<integer>10</integer>		<key>ChassisAssetTag</key>		<string>iMac-Aluminum</string>		<key>ChassisManufacturer</key>		<string>Apple Inc.</string>		<key>ChassisType</key>		<string>13</string>		<key>Family</key>		<string>iMac</string>		<key>Manufacturer</key>		<string>Apple Inc.</string>		<key>ProductName</key>		<string>iMac13,1</string>		<key>SerialNumber</key>		<string>[insert serial here]</string>		<key>SmUUID</key>		<string>[insert ID here]</string>		<key>Trust</key>		<false/>		<key>Version</key>		<string>1.0</string>	</dict>	<key>SystemParameters</key>	<dict>		<key>InjectKexts</key>		<string>Detect</string>		<key>InjectSystemID</key>		<true/>	</dict></dict></plist>,v
+nv_disable=1,v
+>,v
+-,v
+<!--,v
+sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/USB --applicationpath /Applications/Install\ macOS\ Sierra.app --nointeraction,v
+10000806920696,v
+ssdt.aml,v
+art=0 nv_disable=1,v
+d,v
+		<string>dart=0 nv_disable=1</string>,V
+0x010676,v
+https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh,v
+///////////////////////,1
+/,v
+LocalForward 15060 jaguar.ops.corp.tw1.yahoo.com:15060,V
+02-77028868,v
+//////////////////////////,1
+作者: Quatre (卡特爾) 站內: jojojojo標題: [大狗系列]金門豔遇時間: 2016/12/01 Thu 23:42:00    「嗨！你又要到金門出差啊！」站在機場櫃臺前，突然有個女生的聲音叫    我。    回頭一望，空曠的機場大廳，有個戴著墨鏡，背著一個名牌包包的長髮妙齡    女子往我走過來，一時間還想不起來她是誰？「你忘了我啊！」她說，眼前    這個女生穿著細肩帶的紅色上衣，鎖骨上襯出花花的內衣肩帶，但細肩帶上    衣簡直快包不住飽滿的胸部，露出深深的乳溝。瘦瘦的腰身圍著一條裝飾的    腰帶，下半身則是穿著碎花迷你裙，大概離膝蓋至少15公分，我想如果她彎    腰的話，裡頭的春光絕對外露，蹬著一雙高跟鞋，更顯得腿的修長。看我一    臉狐疑，她慢慢拿下墨鏡，細眉大眼，擦著黑色的眼影，小巧的鼻子，性感    嘴唇微張，舌頭在上嘴唇抿了抿，(我想到了這個女生是誰了！)。瞬間我的    背部感覺到被一對巨乳壓著，體溫穿透我白色的襯衫，3秒鐘前的性感嘴唇    轉眼已經貼在我的左耳，一股淡淡的香水味飄進我的鼻子，「要不要一起劃    位！」她說，我幻想著那對巨乳因為壓迫的關係而激凸，似乎在我的背部摩    擦，說完她拿走我手中的信用卡，擠到原本我跟櫃臺間小小的空間內，隨即    感到隔著迷你裙，小小卻翹的臀部頂著我的西裝褲，若有似無的擺動，(糟    糕！換我要「激凸」了！)，我從側臉隱約看到她的微笑。    她是我在3個月前到金門遇到的一個女生，芳齡20，身高166公分，體重42公    斤，自稱三圍32E.25.34，名字叫做淑君，但要我叫她小八。是個內衣專櫃    的小姐。    3個月前，好像是6月底接近端午節吧！那時候我臨時被派遣到金門出差，原    本我還擔心機場關閉要原機返回松山機場，在顛頗的降落過程，讓我雙眼只    能盯著跟我面對面坐的空姐看，想說如果降落失敗，我至少在掛掉前，雙手    抓著空姐的胸部，做人生最後的享樂。沒想到機長技術良好，安全降落讓我    活了過來。一下飛機出了大廳，就看到機場又要關閉的告示。颱風的影響，    機場關關開開的。不管啦！先坐計程車到金城。由於是臨時的出差，公司小    妹也沒有幫我訂旅館，我開著租來的汽車，問了幾家大的旅館都被團體住滿    了，好不容易找到一間大概只有10間房間的小旅館，先付了錢，就趕到公家    機關先辦事去了。那天風大雨大的，金門整天昏昏暗暗的，弄了快2個小    時，總算把要找的4筆土地找到，拍完照片，簡單記錄，又回到金城鎮上的    商店採買一番，因為我也忘了帶傘，所以工作的時候，下車淋雨，上車吹冷    氣，已經感覺我大概也要感冒了！拿著買好的食物零食和顧客送的高樑。把    車停好，到櫃臺拿鑰匙，上樓到我的房間。    在閃電打雷聲中，我打開房門，景象讓我待了幾秒。陰暗的房間裡，一個長    髮纖瘦的裸女，面對大門，正低頭拿著毛巾在擦拭頭髮，水滴狀的胸部飽滿    下垂，白晰的皮膚，讓小小乳暈似乎呈現淡淡的粉色襯托出乳頭的小巧，細    細的腰身末端可以看到烏黑的陰毛。身高約165公分屬於修長型。她聽到我    關上房門的聲音，抬頭起來，大概呆了幾秒，才用擦頭髮的毛巾遮著胸口，    但長度卻不夠完全遮住下體，還是可以看到部分的陰毛。    「你是誰？你要幹嘛！」(我才要問妳幹嘛！)    「這是我租的房間！」(怪了！我也租這間房)    「我問老闆！你轉身過去」說完她拿起化妝台上的電話打給櫃臺，我看著背    部全裸的她，跟從化妝台鏡子的反射欣賞她胸部的曲線。掛下電話，被她發    現我已經免費欣賞了一陣子她的軀體，罵了一聲「變態」轉身進入浴室，不    一會兒，老闆上來房間，她才穿好衣服走出浴室，弄了半天，原來我是租今    天，但是這個小姐是昨天前來看當兵的男友，昨晚租這個房間，下午機場關    閉後無法回台灣，回頭要續租，卻陰錯陽差沒有登記，變成兩個人都出錢承    租。老闆急忙打了幾通電話後，「不好意思，因為機場關閉的原因，金城已    經找不到旅館住宿。反正這是兩個單人床的房間，你們就各睡一張床好了，    我錢退一半給你們！你們就將就一晚，等明天機場應該就會開放，你們先考    慮看看。」老闆說完趕緊離開房間，似乎也想不出法子了！    就這樣外面下著大雨，我們兩個人站在房裡互相對望。眼前的她穿了一件濕    透的白襯衫，裡面的粉色胸罩緊貼著，隱約可見，中間露出肚臍與部分腰    身，下半身穿了一件濕透白色迷你裙，整個臀部曲線一覽無遺，讓我不自覺    吞了吞口水，雖然10分鐘前「初次見面」我就已經看過全裸的她，但現在我    卻覺得下體有膨脹的感覺。10分鐘過後，她開口說話了，「你睡牆壁那邊，    我睡窗戶這邊，你不准亂來，不然我會叫的」，事後證明她果然「很會    叫」。    她轉身進浴室洗澡，我則是坐在床上看著電視吃我的晚餐。大概半小時後，    等她出來，身上包著一條大浴巾。「我全身的衣服都濕了，不止背來的包包    濕了，連裡面昨天穿的衣服也都濕掉了！現在只能吊在浴室晾乾！」，她開    口解釋為何還是包著浴巾的原因，看來她情緒緩和許多，不再像剛剛那樣恰    北北，端詳她的臉，素顏的她其實還蠻年輕的，(我叫大狗，你晚餐吃了    沒？要不要吃點東西？)，反正我習慣是出差晚上買一堆東西回旅館吃，就    不再踏出房門，所以分點食物給她也沒差，「我叫小八，大狗哥可以給我一    點酒好嗎！我有點冷。」有酒大家喝，我倒給她一杯高梁酒。聊起來，原來    她是男友剛入營幾個月，還不能放假回台灣，只好來金門看他。男友收假回    部隊，她卻被困在機場，回不了台灣，只好回旅館續住。聊著聊著，酒過三    巡，兩人都有點茫了，已經幹掉一瓶750的高梁，偶爾可以看到坐在床上的    小八腿開開，總是到了關頭就關門，吊盡我的胃口，但她似乎不知情，看看    手錶也已經9點多了。(我先去洗澡了)，晚上該把白天的收集的資料做一下    整理，小八則說要睡一下。    躺在浴室的浴缸裡泡熱水澡，抬頭看到的是剛剛穿在她身上的衣服，還有1    件胸罩，1件內褲，喝了半瓶高梁的我，起身把內衣褲拿了下來，仔細瞧    瞧，是一套黑色CK的，胸罩罩杯是透明，而且沒有硬的罩杯，後面的小布    條，寫著32Dcup，內褲則是黑色丁字褲，我想小八就算穿著，大概前面的陰    毛也要修整到很少，毛才不會跑出來，不過也沒差啦！因為丁字褲也是透明    的。幻想著小八的軀體，右手開始做起活塞運動，但似乎是高梁酒發揮效    力，小弟弟很硬很熱，但就是沒法「催吐」，只好放棄。出來時她已經蓋上    棉被呼呼大睡。我，則是趕忙做著白天的後續工作。    1個小時後，總算告一段落，我伸伸懶腰，回頭看到她把被子踢開，露出一    大截大腿，雙腳夾著棉被，我準備蓋上棉被時。發現原來她雖然包著浴巾，    但是裡面卻穿著濕的內衣褲。粉紅色2/3罩杯的胸罩跟內褲，內褲濕透陰毛    隱約可見，因為睡姿關係，解掉扣環得胸罩半脫落著，讓左乳露出，乳頭站    立著。看的我差點流口水。不對！我摸摸小八額頭，這傢伙竟然發燒了。    笨！穿著濕的衣服吹冷氣睡覺不感冒才怪。我叫她，「嗯！」小八臉頰泛紅    虛弱的回答我。(你不能這樣睡啦！起來把濕衣服脫掉。)小八全身癱軟，我    只好動手把她的胸罩和內褲脫掉，找了一條擦乾身體，又餵了她半杯的高    樑。才幫她蓋上棉被。一整天下來我也累了，睡吧！    好累！有個東西抱著我暖暖的。我習慣是裸睡，不過今晚房間雖然有個裸女    在旁，但是只好穿著內褲睡覺。下體一陣舒服，有舌尖的觸感與吸允的感    覺，好舒服啊！好久沒有這樣被吹老二了！一開始我以為我做著春夢。慢慢    張開眼睛，竟然是小八跪在我的雙腳之間，右手𨨩在床上，左手握著我的    根，張著櫻桃小嘴含著我的老二，規律的上下。    「你醒了！」(妳在幹嘛！吃宵夜啊！)，雖然睡前把小八扒光時，看著年輕    的肉體，上半身有大而圓的胸部，下半身有修長的毛髮，讓我心中有股衝動    想要上了她，但對於一個昏迷的女生下手，實在是不上道。沒想到倒是我昏    睡時，被這個女的給上了！    「人家想要嘛！而且醒來的時候，全身都沒有穿衣服。好冷！我就過來和你    一起睡」說完她又埋頭繼續吸舔我的老二。我則是看她耍什麼花招！倒是口    技不錯，讓我時而打冷顫，擔心提早收兵。但老二卻保持著硬度逐漸加強。    過幾分鐘後，她慢慢往上爬上來，坐到我的小腹，把臉靠近我，兩人的臉是    如此的接近，她這時候看起來非常清秀，她挺起上半身把乳房蹭到我的嘴邊    晃啊晃的，示意我張嘴，雙手抓住乳房，柔軟的觸感回饋到手掌上，伸出舌    頭把弄著乳頭，小八突然把腰身往下坐，右手伸到屁股，好像用手指正在做    「開門」的動作，因為我感覺到我的前端似乎慢慢進入一個隧道口的感覺，    放掉雙乳，把手放到小八腰部環抱，腳跟𨨩住床緣，臀部用力把下半身往上    一頂，瞬間如同列車快速進入隧道般，整節車廂瞬間沒入她的體內，小八原    本似乎想要掌握主導權，控制我的情慾，對於我的突襲方式顯得措手不及，    突然被塞滿的隧道，瞬間的快感，讓她身體攤在我的身上。手摟著她的腰，    強力的撞擊規律的進出，讓她不自覺開始呻吟著。    雖然小八暫時失去主導權，但她卻會示意她想要的體位，先後換了側位、男    上女下，過了幾分鐘的抽插，她突然站了起來，走到化妝台前，穿上高跟    鞋？讓我幾分鐘前攻進要塞的大軍突然全部退守站立在空曠的草原中，有點    淒涼。我有點搞不懂，看著她上半身趴在化妝台上，鏡子裡面的她對我說，    「你知道我為什麼叫做小八嗎？」看著她下半身腳穿著高跟鞋，雙腿張開，    露出剛剛經過強烈撞擊，攻守交換幾次後有點泛紅的城門，黝黑的毛髮濕透    著慢慢滴著水到地板，一個象形的「八」字隱然成形，(哈～我知道了！真    是妙啊！你怎會取這個綽號啊？)「那是我第一個男人，也是第一個讓我知    道性愛的男人幫我取的，他說我只有在這個站立的背後體位姿勢時，身體可    以得到最大的快感。」(那朋友都知道小八的由來嗎？)「不知道，只有「攻    城有功」的男人才知道」，原來我已經通過了考驗，我下了床慢慢走了過    去，她趴著還是用右手雙指做出開門的動作，等著我在曠野中的部隊衝刺攻    擊，雙手跟她的雙手環扣，從後面用力的展開攻城的最後一章，沒多久小八    到達了高峰，對著曠野呼喊著，看著敵人棄械投降，攻城的部隊全部激發在    城門裡。    (妳不是來「勞軍」嗎！怎麼這麼飢渴？)「討厭！他只能放白天，不能過    夜，穿著軍服又不能上旅館，所以我們好久沒做」，喘息中的部隊正慢慢撤    出城門時，小八蹲了下來，張開小口接收了我整個部隊的糧液，讓我不禁閉    上眼睛。(那他知道嗎？)小八正在接收部隊，只能搖搖頭(我替他補齊次數    好了。)，「他的表現還不夠資格知道小八的意義；如果你體力夠的話，我    希望可以跟你再來幾次」她笑著說，受到軍令，號角手吹起號角，我又騎馬    上陣準備帶領部隊再次衝刺。    那天，機場直到中午才開放。我們從5點激戰到11點才退房，戰情只沿燒兩    回合，因為大將軍我的老闆一直打手機找我，問我為何戀戰金門？沒有搭第    一班6點多的飛機回台灣。    就像一夜情，不過倒是蠻特別的，是在外島金門。我們沒有留下任何聯絡方    式。除了整罈的高梁酒跟貢糖外，獲得小八餽贈的粉紅色內衣褲一套，作為    紀念。    想不到三個月後，在松山機場又遇到。    (又去看男朋友啊！晚上要一起住嗎？)我問著坐在我旁邊的小八。    「他四點就收假，我在307房等你」她眨著眼睛說。    (妳曾經在高空中含過嗎？)飛機機頭在跑道盡端拉高，準備往高空衝刺，我    望了望四周座椅都沒有乘客的班機。    「沒有過經驗ㄟ！」那句話似乎燃起小八的興趣。    (那妳在飛機完成起飛過程只有3分鐘時間可以完成任務！)話剛說完，小八    已經伸出左手拉開我的拉鍊，準備「口頭」攻擊，而我則是把右手伸進她那    細肩帶上衣的胸口，尋找那曾有的飽滿手感。--          [5;36m☆[m[0;36m�[1mP[0;36m�[1m�[0;36m�[1mE[0;36m�[1m�[0;36m�[1m﹛�   [1;35m﹡      [34m．[31mstarlight.twbbs.org[1;33m●[m          [1;30mby[5;36m．[;1;33mQuatre      [m．        [1;32m﹡              [5;36m．[m          [1;30mfrom[32m﹡[34mlocalhost                                   [36m．[m                [1;30m＿ˍ▁▂▃▄▅▇▆▅▆▇███▇▆▅▄▃▂▁ˍ＿[m,v
+volrpt -f ./data/external/volrpt/owner_vol_cell.volrpt,v
+<iframe src='//gifs.com/embed/best-funny-vines-y5Jqx5' frameborder='0' scrolling='no' width='360px' height='270px' style='-webkit-backface-visibility: hidden;-webkit-transform: scale(1);' ></iframe>,v
+-L 5000:192.168.1.50:5000,v
+, , , , , , , , , ,V
+,V
+01/28	02/06	紅磡婚宴會館	2702	 	TW	TWD	210	 	01/31	02/06	大潤發八德店	2702	 	TW	TWD	1,818	 	02/03	02/08	ＥＴＣ加值服務手續費	2702	 	TW	TWD	10	 	02/03	02/08	ＥＴＣ帳戶加值金額	2702	 	TW	TWD	500	 	02/03	03/02	國外交易手續費 -ITUNES	2702	 	 	 	2	 	02/03	02/06	ITUNES.COM/BILL	2702	 	LU	TWD	120	120.00	2017/02/0402/03	03/02	國外交易手續費 -ITUNES	2702	 	 	 	5	 	02/03	02/06	ITUNES.COM/BILL	2702	 	LU	TWD	360	360.00	2017/02/0402/04	02/07	三新奧特萊斯股份有限公	2702	 	TW	TWD	403	 	02/06	02/09	中油﹣泰新加油站自助加	2702	 	TW	TWD	283	 	02/07	03/02	國外交易手續費 -ITUNES	2702	 	 	 	6	 	02/07	02/09	ITUNES.COM/BILL	2702	 	LU	TWD	390	390.00	2017/02/0802/09	02/14	中油﹣龜山站自助加油（	2702	 	TW	TWD	1,295	 	02/14	02/17	中油﹣泰新加油站自助加	2702	 	TW	TWD	271	 	02/18	02/23	雅虎奇摩購物中心	2702	 	TW	TWD	2,124	 	02/22	03/01	中油﹣泰新加油站自助加	2702	 	TW	TWD	265	 	02/25	03/01	台亞林口第二交流道北站	2702	 	TW	TWD	1,361	 	02/26	03/01	台亞新營北上站	2702	 	TW	TWD	1,022	 	02/27	03/01	ITUNES.COM/BILL	2702	 	LU	TWD	30	30.00	2017/02/2802/07	02/07	欣桃瓦斯費 16XXX06830	1014	 	TW	TWD	586	 	02/13	02/13	水費 25681XXX736	1014	 	TW	TWD	309	 	03/01	03/01	台電電費 04124XXX103	1014	 	TW	TWD	2,488	 	02/05	02/06	好市多桃園店	4301	 	TW	TWD	3,419	 	02/11	02/13	好市多電子商務	4301	 	TW	TWD	4,849	 	02/16	02/17	好市多桃園店	4301	 	TW	TWD	2,104	 	,v
+com,v
+MU0815(112667XD085197) MU0824(112667XD085197) MU0836(112667XD085197) MU0847(112667XD085197) MU0855(112667XD085898) MU0866(112667XD085898) MU0878(112667XD085898)  ,v
+Host fincgq1HostName fin-master1.bkp.corp.gq1.yahoo.comProtocol 2TISAuthentication noPasswordAuthentication yesForwardAgent yesLocalForward 5939 fin-master1.bkp.corp.gq1.yahoo.com:5979,v
+.,v
+yahoo,v
+ne1,v
+bkp,v
+master1,v
+archive,v
+    -L 5989:archive-master1.bkp.ne1.yahoo.com:5979,V
+-L 5944:localhost:5944 \-L 5964:nvm400.disaster.yahoo.com:5979 \-L 5965:isops2.corp.yahoo.com:5979 \-L 5967:localhost:5967 \-L 5968:localhost:5968 \-L 5969:localhost:5969 \-L 5970:localhost:5970 \-L 5971:localhost:5971 \-L 5972:localhost:5972 \-L 5973:localhost:5973 \-L 5974:localhost:5974 \-L 5975:localhost:5975 \-L 5976:localhost:5976 \-L 5978:nv-master1.bkp.corp.tw1.yahoo.com:5979 \-L 5979:localhost:5979 \-L 5981:nv-master1.bkp.corp.bf1.yahoo.com:5979 \-L 5983:nv-master1.bkp.corp.gq1.yahoo.com:5979 \-L 5984:nv-master1.bkp.corp.sg3.yahoo.com:5979 \-L 5986:localhost:5986 \-L 5987:localhost:5987 \-L 5988:localhost:5988 \-L 5991:nv-master1.bkp.corp.yahoo.com:5979 \-L 5992:master1.bkp.corp.aue.yahoo.com:5979 \-L 5993:master1.bkp.corp.ir2.yahoo.com:5979 \-L 5995:nv-master1.bkp.auckland.corp.yahoo.com:5979 \-L 5996:localhost:5996 \-L 5997:localhost:5997 \-L 5999:nv-master1.bkp.corp.ne1.yahoo.com:5979 \-L 6000:localhost:6000 \-L 10443:localhost:10443 \-L 13389:kms-jumphost1.bkp.corp.bf1.yahoo.com:13389 \-L 13390:localhost:13390 \-L 13392:localhost:13392 \-L 13393:localhost:13393 \-L 13394:localhost:13394 \-L 19443:gq1-bomgar-clst.corp.gq1.yahoo.com:443 \-L 19999:localhost:19999 \-L 23389:localhost:23389 \-L 29999:localhost:29999 \-L 39999:localhost:39999 \-L 49999:localhost:49999 \-L 59999:localhost:59999 \-L 61229:localhost:61229 \-L 61389:localhost:61389 \-L 61399:localhost:61399 \-L 62230:localhost:62230 \-L 62231:localhost:62231 \-L 62233:localhost:62233 \-L 62389:localhost:62389 \-L 62399:localhost:62399 \,V
+root.os_restriction,v
+-L 5944:localhost:5944 \-L 5964:nvm400.disaster.yahoo.com:5979 \-L 5965:isops2.corp.yahoo.com:5979 \-L 5967:localhost:5967 \-L 5968:localhost:5968 \-L 5969:localhost:5969 \-L 5970:localhost:5970 \-L 5971:localhost:5971 \-L 5972:localhost:5972 \-L 5973:localhost:5973 \-L 5974:localhost:5974 \-L 5975:localhost:5975 \-L 5976:localhost:5976 \-L 5978:nv-master1.bkp.corp.tw1.yahoo.com:5979 \-L 5979:localhost:5979 \-L 5981:nv-master1.bkp.corp.bf1.yahoo.com:5979 \-L 5983:nv-master1.bkp.corp.gq1.yahoo.com:5979 \-L 5984:nv-master1.bkp.corp.sg3.yahoo.com:5979 \-L 5986:localhost:5986 \-L 5987:localhost:5987 \-L 5988:localhost:5988 \-L 5991:nv-master1.bkp.corp.yahoo.com:5979 \-L 5992:master1.bkp.corp.aue.yahoo.com:5979 \-L 5993:master1.bkp.corp.ir2.yahoo.com:5979 \-L 5995:nv-master1.bkp.auckland.corp.yahoo.com:5979 \-L 5996:localhost:5996 \-L 5997:localhost:5997 \-L 5999:nv-master1.bkp.corp.ne1.yahoo.com:5979 \-L 6000:localhost:6000 \-L 10443:localhost:10443 \-L 13389:kms-jumphost1.bkp.corp.bf1.yahoo.com:13389 \-L 13390:localhost:13390 \-L 13392:localhost:13392 \-L 13393:localhost:13393 \-L 13394:localhost:13394 \-L 19443:gq1-bomgar-clst.corp.gq1.yahoo.com:443 \-L 19999:localhost:19999 \-L 23389:localhost:23389 \-L 29999:localhost:29999 \-L 39999:localhost:39999 \-L 49999:localhost:49999 \-L 59999:localhost:59999 \-L 61229:localhost:61229 \-L 61389:localhost:61389 \-L 61399:localhost:61399 \-L 62230:localhost:62230 \-L 62231:localhost:62231 \-L 62233:localhost:62233 \-L 62389:localhost:62389 \-L 62399:localhost:62399 \-L 63389:localhost:63389 \-L 63399:localhost:63399 \-L 64389:localhost:64389 \-L 64399:localhost:64399 \-L 65389:localhost:65389 \-L 65399:localhost:65399,V
+#mosh --ssh="ssh -p 60002" jaguar.ops.corp.tw1.yahoo.com,V
+W@y0saxS16,v
+http://www.taiyo.co.jp/~gotoh/ssh/connect.c,v
+kms-jumphost1.bkp.gqv.yahoo.com:3389,v
+org ,v
+ip,v
+no,v
+eternia,v
+alias mbak='mosh heeroywing.dyndns.org --ssh="ssh -p 9022"'alias heeroy='ssh -2 -p 9022 heeroy.org -D 1080 -L 3390:192.168.1.128:3389 -L 5901:192.168.1.127:5901 -L 9980:192.168.1.254:80 -L 9122:192.168.1.127:22 -L 9180:192.168.1.131:80 -L 9080:192.168.1.129:80 -L 3128:heeroy.org:3128 -L 5000:192.168.1.50:5000',V
+189.69.120.174,v
+eternia.no-ip.org,v
+/home/y/var/ops_smurf_nvreport/hnas_paths/result.txt,v
+478452708588464372381,4
+http://ouo.io/s/C9s1B8lY/?s=http://ouo.io/s/C9s1B8lY/?s=,28
+216	478432	452368	708364	588326	464313	372391	381,V
+AA4468D3F6254,v
+%2F,v
+%3A%2F%2F,v
+http://ouo.io/s/C9s1B8lY/?s=,28
+	4 - Low	Open	Heeroy Chen (heeroy)	Normal	SMURF Backup Request for cyptn3.mail.ne1.yahoo.com	OPS Request	IN - Bangalore Intermediate Ring Road		4 - Low	Open	Heeroy Chen (heeroy)	Normal	SMURF Backup Request for cyptn4.mail.ne1.yahoo.com	OPS Request	IN - Bangalore Intermediate Ring Road		4 - Low	Open	Heeroy Chen (heeroy)	Normal	SMURF Backup Request for cyptn1.mail.ne1.yahoo.com	OPS Request	IN - Bangalore Intermediate Ring Road		4 - Low	Open	Heeroy Chen (heeroy)	Normal	SMURF Backup Request for cyptn2.mail.ne1.yahoo.com	OPS Request	IN - Bangalore Intermediate Ring Road		4 - Low	Open	Heeroy Chen (heeroy)	Normal	SMURF Backup Cancel Request for db2.ostk.bm1.prod.ne1.yahoo.com	OPS Request	US - Sunnyvale	,154
+http://ouo.io/s/C9s1B8lY/?s=https%3A%2F%2Fmega.nz%2F%23!Yd8kGIQC!FA6nxGThuPwzMUuuOt1rUbfrwSNu5SXipBOREV0NNFw,v
+-L 5998:ird-bck01.corp.ird.yahoo.com:5979 \,V
+fix open drive issue in nv-blank.bkp.ne1,V
+12/0112/0112/0212/0312/0312/0412/0412/0512/0612/0712/0712/0912/1012/1112/1112/1212/1412/1812/1912/1912/2012/2112/2412/2612/2611/2812/0612/1301/0312/24,v
+smart1_bkp_ne1_port1 [21:00:00:24:ff:48:71:b7] vsan,v
+fc12/43,v
+21:00:00:24:ff:46:c3:b3,v
+-L 5994:master1.bkp.sydney.corp.yahoo.com:5979 \,V
+-L 5990:netapp-master1.bkp.corp.sp2.yahoo.com:5979 \,V
+-L 5985:nv-master1.bkp.corp.sk1.yahoo.com:5979 \,V
+-L 5982:jvtl1.bkp.corp.ch1.yahoo.com:5979 \,V
+-L 5980:master1.bkp.corp.ac4.yahoo.com:5979 \,V
+-L 5977:nv-master1.bkp.corp.kr3.yahoo.com:5979 \,V
+人生還有更重要的事，我還等著吃雞爺喜酒呢💪💪,v
+etapp,v
+https://tvrs.ntpd.gov.tw/,v
+ssh -A isops2.corp.yahoo.com -L 5939:localhost:5939,v
+fc5/20,v
+3DS1616 - Super Mario Maker for Nintendo 3DS (Japan).cia,v
+alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)',v
+-L 5989:nv-master1.bkp.corp.sp1.yahoo.com:5979 \,V
+T,v
+98.138.14.33,v
+(112667XD091884)(112667XD091865)(112667XD089571)(112667XD091969),16
+setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock,V
+-bash-4.1$ cat a.shecho "AuthorizedKeysFile /etc/ssh/headless_authorized_keys/%u" >> /etc/ssh/sshd_configsudo /bin/systemctl restart  sshd.service,v
+dev-smurf-02.corp.gq1.yahoo.com,V
+NX3383(112667XD091884) NX3395(112667XD091865) NX3416(112667XD089571) NX3429(112667XD091969)  ,v
+https://www.thenewslens.com/article/55840,v
+https://www.ptt.cc/bbs/WomenTalk/M.1480934562.A.D74.html,v
+opm.stops.corp.gq1.yahoo.com,V
+cos-archiver1.bkp.gq1.yahoo.comdev-smurf-02.corp.gq1.yahoo.com,V
+opm.stops.corp.gq1.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64,V
+smurfdev.infra.corp.bf1.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64dev-smurf-01.infra.bf1.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64hpecs02.st.gq1.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64ss0001.eos.bf2.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64ss0002.eos.bf2.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64ss0003.eos.bf2.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64ss0004.eos.bf2.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64ss0005.eos.bf2.yahoo.com	Linux 2.6.32-573.3.1.el6.YAHOO.20150903.2.x86_64 x86_64,V

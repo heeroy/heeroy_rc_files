@@ -1,0 +1,9 @@
+require 'yahoo/cookbook_version_helper'
+
+name 'st-dp-admin-host'
+maintainer 'heeroy'
+maintainer_email 'heeroy@yahoo-inc.com'
+license 'Copyright 2015 Yahoo Inc. All rights reserved.'
+description 'COOKBOOK_DESCRIPTION'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version Yahoo::CookbookVersionHelper.cookbook_version

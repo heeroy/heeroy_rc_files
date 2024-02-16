@@ -1,0 +1,19 @@
+:: sudo /home/netvault/util/nvsetstanza config firewall.cfg "Devices" "Ports" Value 20000-21000 ""
+:: sudo /home/netvault/util/nvsetstanza config firewall.cfg "Devices" "Out Ports" Value 20000-21000 ""
+:: sudo /home/netvault/util/nvsetstanza config firewall.cfg "MsgChannel" "Ports" Value 20000-21000 ""
+:: sudo /home/netvault/util/nvsetstanza config firewall.cfg "MsgChannel" "Out Ports" Value 20000-21000 ""
+:: sudo /home/netvault/util/nvsetstanza config firewall.cfg "Network" "Out Ports" Value 20000-21000 ""
+:: sudo /home/netvault/util/nvsetstanza config nvnmgr.cfg "Timeouts" "Security" Value 30000 300
+:: sudo /home/netvault/util/nvsetstanza config nvnmgr.cfg "Timeouts" "Broadcast" Value 30000 300
+:: sudo /home/netvault/util/nvsetstanza config nvnmgr.cfg "Network" "Broadcast" Value false true
+
+:: C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe
+cd C:\Program Files (x86)\Quest Software\NetVault Backup\config
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config firewall.cfg "Devices" "Ports" Value 20000-21000 ""
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config firewall.cfg "Devices" "Out Ports" Value 20000-21000 ""
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config firewall.cfg "MsgChannel" "Ports" Value 20000-21000 ""
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config firewall.cfg "MsgChannel" "Out Ports" Value 20000-21000 ""
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config firewall.cfg "Network" "Out Ports" Value 20000-21000 ""
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config nvnmgr.cfg "Timeouts" "Security" Value 30000 300
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config nvnmgr.cfg "Timeouts" "Broadcast" Value 30000 300
+C:\Program Files (x86)\Quest Software\NetVault Backup\util\nvsetstanza.exe config nvnmgr.cfg "Network" "Broadcast" Value false true

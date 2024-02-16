@@ -1,0 +1,80 @@
+Host cgq1
+HostName nv-master1.bkp.corp.gq1.yahoo.com
+Protocol 2
+TISAuthentication no
+PasswordAuthentication yes
+ForwardAgent yes
+LocalForward 5939 localhost:5939
+
+Host is2
+HostName isops2.corp.yahoo.com
+Protocol 2
+TISAuthentication no
+PasswordAuthentication yes
+ForwardAgent yes
+LocalForward 5939 localhost:5939
+
+Host tproxy
+Protocol 2
+#   HostName tw.proxy.yahoo.com
+HostName vpn-1-gci.corp.tw1.yahoo.com
+EscapeChar none
+# socks
+#   LocalForward 1081 socks1.taipei.corp.yahoo.com:1080
+LocalForward 1081 socks1.corp.tw1.yahoo.com:1080
+LocalForward 15060 jaguar.ops.corp.tw1.yahoo.com:15060
+#		LocalForward 1081 socks3.corp.yahoo.com:1080
+# socks proxy
+DynamicForward 1080
+
+#Host *.yahoo.com *.yahoo.net
+#   ProxyCommand /usr/local/bin/connect -S localhost:1080 %h %p
+#   -o ProxyCommand ssh filo.yahoo.com /usr/local/bin/nc -w 60 %h %p
+#   Protocol 2
+#   EscapeChar none
+#   StrictHostKeyChecking no
+#
+
+Host tcv.vault
+Hostname proxy1.ops.tcv.yahoo.com
+HostKeyAlias proxy1.ops.tcv.yahoo.com
+LocalForward 61389 kms-jumphost1.bkp.tcv.yahoo.com:3389
+LocalForward 61399 darkroom.tcv.yahoo.com:9999
+DynamicForward 61229
+
+Host *.tcv *.tcv.yahoo.com
+Protocol 2,1
+ProxyCommand ~/bin/yconnect -4 -S 127.0.0.1:61229 %h %p
+
+Host twv.vault
+Hostname proxy1.ops.twv.yahoo.com
+HostKeyAlias proxy1.ops.twv.yahoo.com
+LocalForward 62389 kms-jumphost1.bkp.twv.yahoo.com:3389
+LocalForward 62399 darkroom.twv.yahoo.com:9999
+DynamicForward 62231
+
+Host *.twv *.twv.yahoo.com
+Protocol 2,1
+ProxyCommand ~/bin/yconnect -4 -S 127.0.0.1:62231 %h %p
+
+Host gqv.vault
+Hostname proxy1.ops.gqv.yahoo.com
+HostKeyAlias proxy1.ops.gqv.yahoo.com
+LocalForward 64389 kms-jumphost1.bkp.gqv.yahoo.com:3389
+LocalForward 64399 darkroom.gqv.yahoo.com:9999
+DynamicForward 62233
+
+Host *.gqv *.gqv.yahoo.com
+Protocol 2,1
+ProxyCommand ~/bin/yconnect -4 -S 127.0.0.1:62233 %h %p
+
+Host bfv.vault
+Hostname proxy1.ops.bfv.yahoo.com
+HostKeyAlias proxy1.ops.bfv.yahoo.com
+LocalForward 65389 kms-jumphost1.bkp.bfv.yahoo.com:3389
+LocalForward 65399 darkroom.bfv.yahoo.com:9999
+DynamicForward 62230
+
+Host *.bfv *.bfv.yahoo.com
+Protocol 2,1
+ProxyCommand ~/bin/yconnect -4 -S 127.0.0.1:62230 %h %p

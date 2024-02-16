@@ -1,0 +1,70 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+autoload -Uz promptinit
+promptinit
+prompt steeef
+
+# Setting up tmux window title
+#settitle() {
+#    printf "\033k$1\033\\"
+#    printf "\033k`hostname -s`\033\\"
+#}
+#ssh() {
+#    settitle "$*"
+#    command ssh "$@"
+#    settitle "bash"
+#}
+# Customize to your needs...
+#source .zprezto/runcoms/my-aliases.zsh
+#source .zprezto/runcoms/my-key-bindings.zsh
+# bindkey
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
+bindkey  forward-word
+bindkey  backward-word
+bindkey  beginning-of-line
+bindkey  end-of-line
+# alias
+alias lf='ls -valF'
+alias ta='tmux attach'
+alias h='history 25'
+alias j='jobs'
+alias vi='vim -p'
+alias grep='grep -i --color'
+alias cls='clear'
+alias p='ping'
+alias t='telnet -8'
+alias df='df -h'
+alias mic='make install clean'
+alias ssh='ssh -A -2'
+alias s='ssh'
+alias mheeroy='mosh heeroy.org --ssh="ssh -p 9022"'
+alias mbak='mosh heeroywing.dyndns.org --ssh="ssh -p 9022"'
+alias heeroy='ssh -2 -p 9022 heeroy.org -D 1080 -L 3390:192.168.1.128:3389 -L 5901:192.168.1.127:5901 -L 9980:192.168.1.254:80 -L 9122:192.168.1.127:22 -L 9180:192.168.1.131:80 -L 9080:192.168.1.129:80 -L 3128:heeroy.org:3128 -L 5000:192.168.1.50:5000'
+alias bak='ssh -2 -p 9022 heeroy.asuscomm.com -L 3390:192.168.1.128:3389 -L 5901:192.168.1.127:5901 -L 9980:192.168.1.254:80 -L 9122:192.168.1.127:22 -L 9180:192.168.1.131:80 -L 9080:192.168.1.129:80 -L 3128:proxy.hinet.net:80'
+alias starbak='ssh -2 localhost -p 9122'
+alias 12f='ssh -2 12f.twbbs.org -p 9022'
+alias newstar='ssh -2 192.168.1.125'
+#alias dt='mosh 192.168.1.127 --ssh="ssh -p 9022"'
+alias dt='ssh 192.168.1.127 -p 9022'
+alias extdt='ssh eternia.no-ip.org -p 9022 -L 5901:192.168.1.127:5901'
+alias sockstat='lsof -i4'
+alias today='cd ~/Documents/`date +%Y%m%d`'
+alias yest='cd ~/Documents/`date -v-1d +%Y%m%d`'
+alias ope='open'
+# Path/other settings
+export PATH=/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/opt/local/bin:/opt/local/sbin:/usr/games:/usr/X11R6/bin:/Users/heeroy/.local/bin:/Users/heeroy/bin:$PATH
+export LC_CTYPE=en_US.UTF-8
+export TERM=xterm-256color
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

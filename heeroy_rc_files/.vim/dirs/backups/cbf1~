@@ -1,0 +1,3 @@
+#!/bin/sh
+ssh nv-master1.bkp.corp.bf1.yahoo.com -L 53389:kms-jumphost1.bkp.corp.bf1.yahoo.com:3389 -L 5921:nv-master2.bkp.bf1.yahoo.com:5979
+#mosh --ssh="ssh -p 60002" jaguar.ops.corp.tw1.yahoo.com

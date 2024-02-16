@@ -1,0 +1,8 @@
+---
+platform: cookbook
+
+shared:
+    settings:
+        chef_org: YOUR_ORGANIZATION
+    notifications:
+        email: YOUR_EMAIL
